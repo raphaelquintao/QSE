@@ -1,0 +1,18 @@
+15000 Arquivos
+   -> Raw Data Processed: 985.643069 mb
+   -> Index Size: 242.698284 mb
+   Deleting Indexer!
+ Indexing done in 2.715417 min
+ Loading index...
+ Loading done in 1.652000 sec
+
+ Vocabulary Entries: 714302
+ Documents Entries: 15000
+ 
+ 
+   
+87723 Tudo
+   -> Raw Data Processed: 5308.147378 mb
+   -> Index Size: 1442.874802 mb
+   Indexing done in 14.017583 min
+   Total : 2.12GB

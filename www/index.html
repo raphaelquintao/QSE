@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Search</title>
+  <meta name="description" content="">
+  <meta name="author" content="Raphael Quintao">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"></link>
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"></link>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css"></link>
+  <link rel="stylesheet" href="css/skeleton.css"></link>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="images/favicon.png" rel="icon" type="image/png"></link>
+  <script src="javascript/jquery-1.11.3.js" type="application/javascript"></script>
+  <script src="javascript/js.js" type="application/javascript"></script>
+
+  <style type="text/css">
+  body{
+    background-color: #F6F6F6;
+  }
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+    .q-top-bar{
+      margin-top: 8px;
+      margin-bottom: 8px;
+      height: 80px;
+      text-align: center;
+    }
+    .q-top-bar img, .q-top-bar h2{
+      /*background-color: orange;*/
+      display: inline;
+      vertical-align: middle;
+    }
+    .q-top-bar img{
+      margin-right: 10px;
+    }
+    #search-box{
+      height: 48px;
+      font-size: 20px;
+      text-transform: lowercase
+    }
+    #models{
+      margin-left: 15px;
+    }
+    input:focus{
+      border-color: #F79EC3 !important;
+    }
+    input[type="radio"]:hover{
+      border-color: #F79EC3 !important;
+    }
+    input[type="radio"] {
+      margin-bottom: 5px;
+    }
+    a{
+      color: #404040; 
+    }
+    a:hover{
+      color: #F33580;
+    }
+    #loading{
+      margin-top: -44px;
+      text-align: right;
+      height: 34px;
+      margin-right: 10px;
+      /* background: orange; */
+    }
+    #loading #load-anim{
+      display: none;
+      opacity: 0.6;
+    }
+    #loading #load-static{
+      display: none;
+      width: 45px;
+      opacity: 0.3;
+    }
+  </style>
+    
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    
+
+  <div class="container">
+  
+    <div class="q-top-bar">
+        <img src="images/favicon.png"/>
+        <h2>QSE - Search Engine</h2>
+    </div>
+
+    <div class="row">
+      <form id="search-form" action="#" style="margin-bottom: 0">
+
+        <div class="ten columns">
+          <input id="search-box" type="text" class="u-full-width" placeholder="Search" style="margin-bottom: 3px">
+          
+          <div id="loading">
+          <img id="load-anim" src="images/loading.gif"/>
+          <img id="load-static" src="data:image/png;base64,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"/>
+          </div>
+        </div>
+        <div id="models" class="two columns">
+          <input type="radio" name="models" value="bm25" checked> Okapi BM25<br>
+          <input type="radio" name="models" value="vector"> Vector Space<br>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="row" id="result">
+      <h6 id="result-message" style="margin-bottom: 13px"></h6>
+      
+      <ol id="result-list">
+      </ol>
+    </div>
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
